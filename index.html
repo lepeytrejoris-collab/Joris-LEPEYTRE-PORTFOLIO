@@ -78,6 +78,7 @@
         .profile-pic { width: 220px; height: 220px; border-radius: 65px; overflow: hidden; border: 8px solid white; box-shadow: 0 20px 40px rgba(0,0,0,0.1); background: white; }
         .profile-pic img { width: 100%; height: 100%; object-fit: cover; }
         .hero-qr-card { background: white; padding: 20px; border-radius: 40px; box-shadow: var(--soft-shadow); border: 1px solid rgba(0,0,0,0.05); text-align: center; width: 160px; transition: 0.4s; }
+        .hero-qr-card:hover { transform: scale(1.05) rotate(3deg); }
         .hero-qr-card img { width: 120px; height: 120px; display: block; margin: 0 auto 10px auto; border-radius: 10px; }
         .hero-qr-card span { font-family: 'Outfit'; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; color: var(--accent); }
         .hero-text h1 { font-family: 'Outfit'; font-size: clamp(2.5rem, 8vw, 4rem); line-height: 1; margin-bottom: 15px; letter-spacing: -2px; }
@@ -95,23 +96,19 @@
         .passion-card:hover .passion-img img { transform: scale(1.08); }
         .passion-info { padding: 18px; text-align: center; font-weight: 700; font-family: 'Outfit'; font-size: 1.1rem; }
 
-        /* Détails */
         .detail-box { background: var(--card-bg); padding: 30px; border-radius: 30px; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.5); backdrop-filter: blur(15px); }
         .status-pill { padding: 6px 14px; border-radius: 100px; color: white; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 15px; display: inline-block; }
 
-        /* Galerie */
         .gallery-container { margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .gallery-item { background: white; border-radius: 30px; overflow: hidden; box-shadow: var(--soft-shadow); }
         .gallery-img { width: 100%; aspect-ratio: 16/10; overflow: hidden; }
         .gallery-img img { width: 100%; height: 100%; object-fit: cover; }
         .gallery-text { padding: 18px; text-align: center; font-family: 'Outfit'; font-weight: 600; font-size: 0.95rem; }
 
-        /* Contact */
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; }
         .contact-item { background: var(--card-bg); padding: 20px; border-radius: 20px; display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--text-main); font-weight: 700; transition: 0.3s; border: 1px solid rgba(255,255,255,0.4); }
         .contact-item:hover { background: white; transform: translateY(-3px); border-color: var(--accent); }
 
-        /* Flottant QR */
         .floating-qr { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: white; border-radius: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); z-index: 999; cursor: pointer; border: 2px solid var(--accent); transition: 0.3s; }
         .floating-qr:hover { transform: scale(1.1); background: var(--accent); }
         .floating-qr:hover svg { color: white !important; }
@@ -124,7 +121,6 @@
         .btn-chill { display: inline-block; padding: 16px 40px; background: var(--text-main); color: white; border-radius: 100px; text-decoration: none; font-weight: 700; margin-top: 25px; transition: 0.3s; font-size: 0.9rem; }
         .back-btn { margin-bottom: 35px; display: inline-flex; align-items: center; gap: 10px; font-weight: 800; cursor: pointer; font-family: 'Outfit'; text-transform: uppercase; font-size: 0.85rem; }
 
-        /* Legend */
         .legend { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; padding: 15px; background: rgba(255,255,255,0.3); border-radius: 20px; }
         .legend-item { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.75rem; }
         .dot { width: 10px; height: 10px; border-radius: 50%; }
@@ -173,7 +169,7 @@
         </div>
     </div>
 
-    <!-- CONTENU -->
+    <!-- CONTENU PRINCIPAL -->
     <div id="main-content" class="page-container">
         <!-- PROFIL -->
         <section id="profil">
@@ -189,7 +185,7 @@
                     <a href="https://drive.google.com/file/d/1ZgI7fHbAqEAkHK0xllJ4osKOJhHgaTxO/view?usp=sharing" target="_blank" class="btn-chill">Consulter mon CV</a>
                 </div>
                 <div class="hero-qr-card">
-                    <img class="dynamic-qr-img" alt="QR Code">
+                    <img class="dynamic-qr-img" alt="Scanner moi">
                     <span>Partager le site</span>
                 </div>
             </div>
@@ -216,17 +212,17 @@
                 <div class="action-card reveal" onclick="showApprentissage()">
                     <span style="font-size: 0.75rem; color: var(--accent); font-weight: 800; text-transform: uppercase;">Professionnel</span>
                     <h3 style="margin: 12px 0; font-family: 'Outfit'; font-size: 1.5rem;">Chargé d'Affaires EDF</h3>
-                    <p style="color: var(--text-light); font-size: 0.95rem;">Pilotage d'interventions sur systèmes thermiques en centrale nucléaire.</p>
+                    <p style="color: var(--text-light); font-size: 0.95rem;">Pilotage d'interventions sur systèmes thermiques complexes en centrale nucléaire.</p>
                 </div>
                 <div class="action-card reveal" onclick="showEtudes()">
-                    <span style="font-size: 0.75rem; color: var(--accent); font-weight: 800; text-transform: uppercase;">Formation</span>
+                    <span style="font-size: 0.75rem; color: var(--accent); font-weight: 800; text-transform: uppercase;">Formation Académique</span>
                     <h3 style="margin: 12px 0; font-family: 'Outfit'; font-size: 1.5rem;">BUT MT2E</h3>
                     <p style="color: var(--text-light); font-size: 0.95rem;">Expertise en thermique, maîtrise de l'énergie et décarbonation.</p>
                 </div>
             </div>
         </section>
 
-        <!-- COMPÉTENCES (RESTITUÉE) -->
+        <!-- COMPÉTENCES -->
         <section id="competences">
             <h2 class="section-title reveal">Mes Compétences</h2>
             <div class="card-grid">
@@ -245,12 +241,15 @@
             </div>
         </section>
 
-        <!-- CONTACT -->
+        <!-- CONTACT (AVEC INSTAGRAM RESTAURÉ) -->
         <section id="contact">
             <h2 class="section-title reveal">Me contacter</h2>
             <div class="contact-grid reveal">
                 <a href="https://www.linkedin.com/search/results/all/?keywords=Joris%20LEPEYTRE" target="_blank" class="contact-item">
                     <div style="background: #0077b5; padding: 10px; border-radius: 12px; color: white; width: 40px; text-align: center;">in</div>LinkedIn
+                </a>
+                <a href="https://www.instagram.com/j0ris.lp/" target="_blank" class="contact-item">
+                    <div style="background: #e1306c; padding: 10px; border-radius: 12px; color: white; width: 40px; text-align: center;">IG</div>@j0ris.lp
                 </a>
                 <a href="mailto:lepeytrejoris@gmail.com" class="contact-item">
                     <div style="background: var(--accent); padding: 10px; border-radius: 12px; color: white; width: 40px; text-align: center;">@</div>Email
@@ -300,7 +299,7 @@
         <section><div class="back-btn" onclick="showHome()">← Retour</div><h1 id="comp-title" class="section-title">Détails</h1><div id="comp-list-container"></div></section>
     </div>
 
-    <footer style="padding: 40px; text-align: center; color: var(--text-light); font-weight: 600;">© 2026 — Joris Lepeytre</footer>
+    <footer style="padding: 40px; text-align: center; color: var(--text-light); font-weight: 600;">© 2026 — Joris Lepeytre — Expertise Énergie & Froid</footer>
 
     <script>
         const portfolioUrl = "https://lepeytrejoris-collab.github.io/Joris-LEPEYTRE-PORTFOLIO/";
@@ -312,9 +311,37 @@
         };
 
         const compData = {
-            hard: { title: "Hard Skills", items: [{n:"Thermodynamique", s:"Maîtrisée", c:"var(--lvl-maitrise)", d:"Expertise cycles frigorifiques."},{n:"Logiciels métiers", s:"Maîtrisée", c:"var(--lvl-maitrise)", d:"Excel, Veol, GMAO."},{n:"Estimation coûts", s:"En apprentissage", c:"var(--lvl-appr)", d:"Chiffrage industriel."}] },
-            soft: { title: "Soft Skills", items: [{n:"Sûreté Nucléaire", s:"Maîtrisée", c:"var(--lvl-maitrise)", d:"Respect procédures critiques."},{n:"Leadership", s:"En dev.", c:"var(--lvl-dev)", d:"Animation équipes terrain."}] },
-            savoir: { title: "Savoir-être", items: [{n:"Rigueur", s:"Maîtrisée", c:"var(--lvl-maitrise)", d:"Exigence maximale."},{n:"REX", s:"Maîtrisée", c:"var(--lvl-maitrise)", d:"Capitalisation expérience."}] }
+            hard: { 
+                title: "Hard Skills", 
+                items: [
+                    {n:"Thermodynamique", s:"Maîtrisée", c:"var(--lvl-maitrise)", d:"Expertise cycles frigorifiques et transferts thermiques."},
+                    {n:"Logiciels métiers", s:"Maîtrisée", c:"var(--lvl-maitrise)", d:"Excel avancé, Veol, GMAO et outils de suivi EDF."},
+                    {n:"Audit Énergétique", s:"En dev.", c:"var(--lvl-dev)", d:"Analyse des consommations et préconisations d'économies."},
+                    {n:"Réglementation F-Gas", s:"Maîtrisée", c:"var(--lvl-maitrise)", d:"Gestion des fluides frigorigènes et conformité environnementale."},
+                    {n:"Dessin Technique", s:"Maîtrisée", c:"var(--lvl-maitrise)", d:"Lecture de schémas et modélisation 3D industrielle (SolidWorks/AutoCAD)."},
+                    {n:"Estimation coûts", s:"En apprentissage", c:"var(--lvl-appr)", d:"Méthodes de chiffrage industriel et budgets de maintenance."}
+                ] 
+            },
+            soft: { 
+                title: "Soft Skills", 
+                items: [
+                    {n:"Sûreté Nucléaire", s:"Maîtrisée", c:"var(--lvl-maitrise)", d:"Culture sécurité et respect rigoureux des procédures critiques."},
+                    {n:"Leadership", s:"En dev.", c:"var(--lvl-dev)", d:"Animation et coordination d'équipes techniques sur le terrain."},
+                    {n:"Gestion des priorités", s:"Maîtrisée", c:"var(--lvl-maitrise)", d:"Capacité à gérer l'urgence en phase de réalisation de chantier."},
+                    {n:"Communication transversale", s:"Maîtrisée", c:"var(--lvl-maitrise)", d:"Interface fluide entre l'ingénierie et les équipes opérationnelles."},
+                    {n:"Esprit d'équipe", s:"Maîtrisée", c:"var(--lvl-maitrise)", d:"Facilité d'intégration et collaboration en milieu industriel exigeant."}
+                ] 
+            },
+            savoir: { 
+                title: "Savoir-être", 
+                items: [
+                    {n:"Rigueur nucléaire", s:"Maîtrisée", c:"var(--lvl-maitrise)", d:"Exigence maximale dans le contrôle et la traçabilité des tâches."},
+                    {n:"REX", s:"Maîtrisée", c:"var(--lvl-maitrise)", d:"Capitalisation systématique sur l'expérience pour l'amélioration continue."},
+                    {n:"Engagement Sécurité", s:"Maîtrisée", c:"var(--lvl-maitrise)", d:"Vigilance partagée et attitude proactive face aux risques."},
+                    {n:"Autonomie", s:"En dev.", c:"var(--lvl-dev)", d:"Capacité à piloter des dossiers techniques de manière indépendante."},
+                    {n:"Adaptabilité technique", s:"Maîtrisée", c:"var(--lvl-maitrise)", d:"Réactivité face aux imprévus sur les équipements complexes."}
+                ] 
+            }
         };
 
         let lastHomeScrollPos = 0;
@@ -329,7 +356,7 @@
             const container = document.getElementById('comp-list-container');
             container.innerHTML = `<div class="legend"><div class="legend-item"><div class="dot" style="background:var(--lvl-maitrise);"></div>Maîtrisée</div><div class="legend-item"><div class="dot" style="background:var(--lvl-dev);"></div>En dev.</div><div class="legend-item"><div class="dot" style="background:var(--lvl-appr);"></div>Appr.</div></div>`;
             data.items.forEach(i => { container.innerHTML += `<div class="detail-box"><h3>${i.n}</h3><p>${i.d}</p><span class="status-pill" style="background:${i.c}">${i.s}</span></div>`; });
-            hideAll(); document.getElementById('sub-page-competences').classList.remove('hidden'); window.scrollTo(0, 0);
+            hideAll(); document.getElementById('sub-page-competences').classList.remove('hidden'); window.scrollTo(0, 0); updateBackground();
         }
         function showHome() { document.body.classList.remove('mode-nature', 'mode-industrie'); hideAll(); document.getElementById('main-content').classList.remove('hidden'); window.scrollTo(0, lastHomeScrollPos); updateBackground(); }
         function navigateToSection(id) { showHome(); setTimeout(() => { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); document.getElementById('nav-menu').classList.remove('active'); }, 50); }
