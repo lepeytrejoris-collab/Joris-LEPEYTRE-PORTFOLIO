@@ -52,7 +52,7 @@
             background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=2560&auto=format&fit=crop');
         }
         body.mode-industrie {
-            background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://drive.google.com/thumbnail?id=1n3vfIU6aaLtq6h4vWhlTLSaqM86ueO9W&sz=w2560');
+            background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=2560&auto=format&fit=crop');
         }
 
         /* Texture de grain */
@@ -77,7 +77,7 @@
         }
         body.mode-nature #ambient-canvas, body.mode-industrie #ambient-canvas { opacity: 0; }
 
-        /* --- NAVIGATION RESPONSIVE --- */
+        /* --- NAVIGATION --- */
         nav {
             position: fixed;
             top: 0;
@@ -103,339 +103,126 @@
             font-size: 0.9rem;
         }
 
-        /* Menu de navigation standard */
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 12px;
-        }
-
+        nav ul { display: flex; list-style: none; gap: 12px; }
         nav a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 700;
-            font-size: 0.85rem;
-            padding: 10px 22px;
-            border-radius: 100px;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            border: 1px solid white;
-            display: block;
+            text-decoration: none; color: var(--text-main); font-weight: 700; font-size: 0.85rem;
+            padding: 10px 22px; border-radius: 100px; background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px); transition: 0.3s; cursor: pointer; border: 1px solid white;
         }
+        nav a:hover { background: white; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
 
-        nav a:hover {
-            background: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        /* Menu Burger pour Mobile */
         .burger {
-            display: none;
-            cursor: pointer;
-            background: white;
-            padding: 12px;
-            border-radius: 15px;
-            box-shadow: var(--soft-shadow);
-            z-index: 1100;
+            display: none; cursor: pointer; background: white; padding: 12px;
+            border-radius: 15px; box-shadow: var(--soft-shadow); z-index: 1100;
         }
-        .burger div {
-            width: 25px;
-            height: 3px;
-            background: var(--text-main);
-            margin: 5px;
-            border-radius: 3px;
-            transition: 0.3s;
-        }
+        .burger div { width: 25px; height: 3px; background: var(--text-main); margin: 5px; border-radius: 3px; }
 
         /* --- SECTIONS --- */
-        section {
-            min-height: 100vh;
-            padding: 120px 8% 80px 8%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+        section { min-height: 100vh; padding: 120px 8% 80px 8%; display: flex; flex-direction: column; justify-content: center; }
+        .section-title { font-family: 'Outfit', sans-serif; font-size: clamp(2.2rem, 8vw, 3.8rem); margin-bottom: 45px; font-weight: 700; line-height: 1.1; }
 
-        .section-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: clamp(2.2rem, 8vw, 3.8rem);
-            margin-bottom: 45px;
-            font-weight: 700;
-            line-height: 1.1;
-        }
-
-        /* Profil Hero */
+        /* --- PROFIL HERO & QR CODE INITIAL --- */
         .profile-hero {
-            display: flex;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
             align-items: center;
-            gap: 50px;
+            gap: 40px;
             margin-bottom: 60px;
         }
 
         .profile-pic {
-            flex-shrink: 0;
-            width: 220px;
-            height: 220px;
-            border-radius: 65px;
-            overflow: hidden;
-            border: 8px solid white;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            width: 200px; height: 200px; border-radius: 60px; overflow: hidden;
+            border: 8px solid white; box-shadow: 0 20px 40px rgba(0,0,0,0.1); background: white;
+        }
+        .profile-pic img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* QR Code intégré au début */
+        .hero-qr-box {
             background: white;
-        }
-
-        .profile-pic img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-text h1 {
-            font-family: 'Outfit';
-            font-size: clamp(2.8rem, 10vw, 4.5rem);
-            line-height: 1;
-            margin-bottom: 20px;
-            letter-spacing: -2px;
-        }
-
-        .hero-text h1 em {
-            font-style: italic;
-            font-weight: 300;
-            color: var(--accent);
-        }
-
-        /* Grille des cartes */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .action-card {
-            background: var(--card-bg);
-            padding: 35px;
-            border-radius: 35px;
-            border: 1px solid rgba(255,255,255,0.4);
-            backdrop-filter: blur(15px);
-            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
+            padding: 15px;
+            border-radius: 30px;
             box-shadow: var(--soft-shadow);
-        }
-
-        .action-card:hover {
-            transform: translateY(-12px);
-            background: white;
-        }
-
-        /* Passions centrées */
-        .passions-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .passion-card {
-            border-radius: 35px;
-            overflow: hidden;
-            background: var(--card-bg);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            border: 1px solid rgba(255,255,255,0.4);
-            backdrop-filter: blur(10px);
-        }
-
-        .passion-img {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .passion-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.6s;
-        }
-
-        .passion-card:hover .passion-img img { transform: scale(1.08); }
-
-        .passion-info {
-            padding: 18px;
+            border: 1px solid rgba(0,0,0,0.05);
             text-align: center;
-            font-weight: 700;
-            font-family: 'Outfit';
-            font-size: 1.1rem;
-            background: rgba(255,255,255,0.4);
-            border-top: 1px solid rgba(255,255,255,0.2);
+            width: 140px;
+            transition: 0.3s;
         }
+        .hero-qr-box:hover { transform: scale(1.05) rotate(2deg); }
+        .hero-qr-box img { width: 110px; height: 110px; display: block; margin: 0 auto 8px auto; }
+        .hero-qr-box span { font-family: 'Outfit'; font-weight: 700; font-size: 0.65rem; text-transform: uppercase; color: var(--accent); }
 
-        /* Détails des compétences */
-        .detail-box {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 30px;
-            margin-bottom: 25px;
-            border: 1px solid rgba(255,255,255,0.5);
-            backdrop-filter: blur(15px);
-            position: relative;
+        .hero-text h1 { font-family: 'Outfit'; font-size: clamp(2.8rem, 8vw, 4.2rem); line-height: 1; margin-bottom: 20px; letter-spacing: -2px; }
+        .hero-text h1 em { font-style: italic; font-weight: 300; color: var(--accent); }
+
+        /* --- CARTES & GRILLES --- */
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .action-card {
+            background: var(--card-bg); padding: 35px; border-radius: 35px; border: 1px solid rgba(255,255,255,0.4);
+            backdrop-filter: blur(15px); transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; box-shadow: var(--soft-shadow);
         }
+        .action-card:hover { transform: translateY(-12px); background: white; }
 
-        .status-pill {
-            padding: 6px 14px;
-            border-radius: 100px;
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-top: 15px;
-            display: inline-block;
-        }
+        .passions-container { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .passion-card { border-radius: 35px; overflow: hidden; background: var(--card-bg); border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(10px); }
+        .passion-img { height: 200px; overflow: hidden; }
+        .passion-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .passion-card:hover .passion-img img { transform: scale(1.08); }
+        .passion-info { padding: 18px; text-align: center; font-weight: 700; font-family: 'Outfit'; font-size: 1.1rem; background: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.2); }
 
-        /* Galerie d'images */
-        .gallery-container {
-            margin-top: 40px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
+        /* Détails */
+        .detail-box { background: var(--card-bg); padding: 30px; border-radius: 30px; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.5); backdrop-filter: blur(15px); }
+        .status-pill { padding: 6px 14px; border-radius: 100px; color: white; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 15px; display: inline-block; }
 
-        .gallery-item {
-            background: white;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: var(--soft-shadow);
-        }
-
+        /* Galerie */
+        .gallery-container { margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .gallery-item { background: white; border-radius: 30px; overflow: hidden; box-shadow: var(--soft-shadow); }
         .gallery-img { width: 100%; aspect-ratio: 16/10; overflow: hidden; }
         .gallery-img img { width: 100%; height: 100%; object-fit: cover; }
         .gallery-text { padding: 18px; text-align: center; font-family: 'Outfit'; font-weight: 600; font-size: 0.95rem; }
 
-        /* Legend des compétences */
-        .legend {
-            display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; padding: 15px;
-            background: rgba(255,255,255,0.3); border-radius: 20px;
-        }
-        .legend-item { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.75rem; }
-        .dot { width: 10px; height: 10px; border-radius: 50%; }
-
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 15px;
-        }
-
+        /* Contact */
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; }
         .contact-item {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 700;
+            background: var(--card-bg); padding: 20px; border-radius: 20px; display: flex; align-items: center; gap: 15px;
+            text-decoration: none; color: var(--text-main); font-weight: 700; transition: 0.3s; border: 1px solid rgba(255,255,255,0.4);
+        }
+        .contact-item:hover { background: white; transform: translateY(-3px); border-color: var(--accent); }
+
+        /* --- QR CODE MODAL & FLOATING --- */
+        .floating-qr {
+            position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px;
+            background: white; border-radius: 18px; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); z-index: 999; cursor: pointer; border: 2px solid var(--accent);
             transition: 0.3s;
-            border: 1px solid rgba(255,255,255,0.4);
         }
+        .floating-qr:hover { transform: scale(1.1); background: var(--accent); }
+        .floating-qr:hover svg { color: white !important; }
 
-        .contact-item:hover {
-            background: white;
-            transform: translateY(-3px);
-            border-color: var(--accent);
+        .qr-modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px); display: none; align-items: center; justify-content: center; z-index: 2000;
         }
+        .qr-modal.active { display: flex; }
+        .qr-modal-content { background: white; padding: 40px; border-radius: 40px; text-align: center; max-width: 90%; }
+        .close-modal { position: absolute; top: 25px; right: 30px; font-size: 2.5rem; color: white; cursor: pointer; }
 
-        /* Boutons de commande */
-        .btn-chill {
-            display: inline-block;
-            padding: 16px 40px;
-            background: var(--text-main);
-            color: white;
-            border-radius: 100px;
-            text-decoration: none;
-            font-weight: 700;
-            margin-top: 25px;
-            transition: 0.3s;
-            font-size: 0.9rem;
-        }
+        .btn-chill { display: inline-block; padding: 16px 40px; background: var(--text-main); color: white; border-radius: 100px; text-decoration: none; font-weight: 700; margin-top: 25px; transition: 0.3s; font-size: 0.9rem; }
+        .back-btn { margin-bottom: 35px; display: inline-flex; align-items: center; gap: 10px; font-weight: 800; cursor: pointer; font-family: 'Outfit'; text-transform: uppercase; font-size: 0.85rem; }
 
-        .back-btn {
-            margin-bottom: 35px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 800;
-            cursor: pointer;
-            font-family: 'Outfit';
-            text-transform: uppercase;
-            font-size: 0.85rem;
-        }
-
-        /* --- LOGIQUE RESPONSIVE (MOBILE) --- */
-        @media (max-width: 850px) {
-            /* Navbar Mobile */
+        /* --- RESPONSIVE --- */
+        @media (max-width: 950px) {
+            .profile-hero { grid-template-columns: 1fr; text-align: center; justify-items: center; gap: 25px; }
+            .hero-qr-box { display: none; } /* On cache le petit QR au début sur mobile pour gagner de la place */
+            .profile-pic { width: 160px; height: 160px; border-radius: 45px; }
+            
             nav ul {
-                position: fixed;
-                right: -100%;
-                top: 0;
-                height: 100vh;
-                width: 80%;
-                background: rgba(255,255,255,0.98);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-                box-shadow: -15px 0 40px rgba(0,0,0,0.1);
-                gap: 25px;
+                position: fixed; right: -100%; top: 0; height: 100vh; width: 80%;
+                background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+                flex-direction: column; justify-content: center; align-items: center; transition: 0.5s;
             }
-
             nav ul.active { right: 0; }
             .burger { display: block; }
-            
-            nav a {
-                background: transparent;
-                border: none;
-                font-size: 1.3rem;
-                padding: 10px;
-            }
-
-            /* Mise en page mobile */
-            .profile-hero {
-                flex-direction: column;
-                text-align: center;
-                gap: 30px;
-                margin-bottom: 40px;
-            }
-
-            .profile-pic {
-                width: 170px;
-                height: 170px;
-                border-radius: 50px;
-            }
-
-            .passions-container {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 100px 6% 60px 6%;
-            }
-
-            /* Amélioration de la visibilité sur fonds photos en mobile */
-            body.mode-nature .section-title, body.mode-industrie .section-title,
-            body.mode-nature .back-btn, body.mode-industrie .back-btn,
-            body.mode-nature h1, body.mode-industrie h1 {
-                color: white;
-                text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            }
-            
-            body.mode-nature p:not(.detail-box p), body.mode-industrie p:not(.detail-box p) {
-                color: rgba(255,255,255,0.9);
-                text-shadow: 0 1px 5px rgba(0,0,0,0.5);
-            }
+            section { padding: 100px 6% 60px 6%; }
         }
 
         .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
@@ -447,12 +234,9 @@
 
     <canvas id="ambient-canvas"></canvas>
 
-    <!-- NAVIGATION -->
     <nav id="navbar">
         <div class="logo" onclick="showHome()">Portfolio</div>
-        <div class="burger" id="burger-btn" onclick="toggleMenu()">
-            <div></div><div></div><div></div>
-        </div>
+        <div class="burger" id="burger-btn" onclick="toggleMenu()"><div></div><div></div><div></div></div>
         <ul id="nav-menu">
             <li><a onclick="navigateToSection('profil')">Profil</a></li>
             <li><a onclick="navigateToSection('projets')">Parcours</a></li>
@@ -461,9 +245,22 @@
         </ul>
     </nav>
 
-    <!-- CONTENU PRINCIPAL -->
+    <!-- ACCÈS RAPIDE QR -->
+    <div class="floating-qr" onclick="toggleQRModal()">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+    </div>
+
+    <div class="qr-modal" id="qr-modal" onclick="toggleQRModal()">
+        <span class="close-modal">&times;</span>
+        <div class="qr-modal-content" onclick="event.stopPropagation()">
+            <h3 style="font-family: 'Outfit'; margin-bottom: 20px;">Lien du Portfolio</h3>
+            <img id="modal-qr-img" style="width: 220px; height: 220px;" alt="QR Code Joris">
+            <p style="margin-top: 15px; font-weight: 700; font-family: 'Outfit';">Scannez pour ouvrir</p>
+        </div>
+    </div>
+
+    <!-- CONTENU -->
     <div id="main-content" class="page-container">
-        <!-- PROFIL -->
         <section id="profil">
             <div class="profile-hero reveal">
                 <div class="profile-pic">
@@ -471,28 +268,27 @@
                 </div>
                 <div class="hero-text">
                     <h1>Joris <em>Lepeytre</em></h1>
-                    <p style="font-size: clamp(1rem, 4vw, 1.2rem); color: var(--text-light); max-width: 600px;">
-                        Étudiant en <strong>BUT MT2E</strong> à l'IUT d'Orléans et apprenti <strong>Chargé d'Affaires</strong> chez <strong>EDF</strong> à Dampierre.
+                    <p style="font-size: clamp(1rem, 4vw, 1.2rem); color: var(--text-light); max-width: 550px;">
+                        Étudiant en <strong>BUT MT2E</strong> et apprenti <strong>Chargé d'Affaires</strong> chez <strong>EDF</strong>. Expert en énergie et froid industriel.
                     </p>
                     <a href="https://drive.google.com/file/d/1ZgI7fHbAqEAkHK0xllJ4osKOJhHgaTxO/view?usp=sharing" target="_blank" class="btn-chill">Mon CV complet</a>
+                </div>
+                <!-- QR CODE INITIAL AU DÉBUT -->
+                <div class="hero-qr-box">
+                    <img id="hero-qr-img" alt="QR Code">
+                    <span>Partager ce site</span>
                 </div>
             </div>
 
             <div class="reveal">
                 <h3 style="font-family: 'Outfit'; font-size: 1.6rem; margin-bottom: 25px;">Mes Passions</h3>
                 <div class="passions-container">
-                    <!-- Musique -->
                     <div class="passion-card">
-                        <div class="passion-img">
-                            <img src="https://drive.google.com/thumbnail?id=1IQx-0dM_UWB7QU8gvfxpGZHWzLYM3NdN&sz=w1000" alt="Musique">
-                        </div>
+                        <div class="passion-img"><img src="https://drive.google.com/thumbnail?id=1IQx-0dM_UWB7QU8gvfxpGZHWzLYM3NdN&sz=w1000" alt="Musique"></div>
                         <div class="passion-info">Musique</div>
                     </div>
-                    <!-- Sport Auto -->
                     <div class="passion-card">
-                        <div class="passion-img">
-                            <img src="https://drive.google.com/thumbnail?id=1oXIGpzfgeNHfxE9coZMSfTbdPDQaQN4u&sz=w1000" alt="Sport Auto Moto">
-                        </div>
+                        <div class="passion-img"><img src="https://drive.google.com/thumbnail?id=1oXIGpzfgeNHfxE9coZMSfTbdPDQaQN4u&sz=w1000" alt="Sport Auto Moto"></div>
                         <div class="passion-info">Sport Auto & Moto</div>
                     </div>
                 </div>
@@ -504,12 +300,12 @@
             <h2 class="section-title reveal">Mon Parcours</h2>
             <div class="card-grid">
                 <div class="action-card reveal" onclick="showApprentissage()">
-                    <span style="font-size: 0.7rem; color: var(--accent); font-weight: 800; text-transform: uppercase;">Expérience Professionnelle</span>
+                    <span style="font-size: 0.7rem; color: var(--accent); font-weight: 800; text-transform: uppercase;">Expérience Pro</span>
                     <h3 style="margin: 10px 0; font-family: 'Outfit';">Chargé d'Affaires EDF</h3>
                     <p style="color: var(--text-light); font-size: 0.9rem;">Pilotage d'interventions sur systèmes thermiques complexes en centrale nucléaire.</p>
                 </div>
                 <div class="action-card reveal" onclick="showEtudes()">
-                    <span style="font-size: 0.7rem; color: var(--accent); font-weight: 800; text-transform: uppercase;">Formation Académique</span>
+                    <span style="font-size: 0.7rem; color: var(--accent); font-weight: 800; text-transform: uppercase;">Formation</span>
                     <h3 style="margin: 10px 0; font-family: 'Outfit';">BUT MT2E</h3>
                     <p style="color: var(--text-light); font-size: 0.9rem;">Expertise en thermique, maîtrise de l'énergie et décarbonation à l'IUT d'Orléans.</p>
                 </div>
@@ -521,15 +317,15 @@
             <h2 class="section-title reveal">Mes Compétences</h2>
             <div class="card-grid">
                 <div class="action-card reveal" onclick="openCompPage('hard')">
-                    <h4 style="color: var(--accent); font-family: 'Outfit'; font-size: 1.3rem;">Hard Skills</h4>
+                    <h4 style="color: var(--accent); font-family: 'Outfit';">Hard Skills</h4>
                     <p style="margin-top: 8px; font-size: 0.9rem;">Thermodynamique, chiffrage et expertise technique.</p>
                 </div>
                 <div class="action-card reveal" onclick="openCompPage('soft')">
-                    <h4 style="color: var(--accent); font-family: 'Outfit'; font-size: 1.3rem;">Soft Skills</h4>
+                    <h4 style="color: var(--accent); font-family: 'Outfit';">Soft Skills</h4>
                     <p style="margin-top: 8px; font-size: 0.9rem;">Leadership, coordination et gestion de projets.</p>
                 </div>
                 <div class="action-card reveal" onclick="openCompPage('savoir')">
-                    <h4 style="color: var(--accent); font-family: 'Outfit'; font-size: 1.3rem;">Savoir-être</h4>
+                    <h4 style="color: var(--accent); font-family: 'Outfit';">Savoir-être</h4>
                     <p style="margin-top: 8px; font-size: 0.9rem;">Rigueur nucléaire et adaptabilité technique.</p>
                 </div>
             </div>
@@ -539,238 +335,106 @@
         <section id="contact">
             <h2 class="section-title reveal">Me contacter</h2>
             <div class="contact-grid reveal">
-                <!-- LinkedIn -->
                 <a href="https://www.linkedin.com/search/results/all/?keywords=Joris%20LEPEYTRE" target="_blank" class="contact-item">
-                    <div style="background: #0077b5; padding: 10px; border-radius: 12px; color: white; width: 40px; text-align: center;">in</div>
-                    LinkedIn
+                    <div style="background: #0077b5; padding: 10px; border-radius: 12px; color: white; width: 40px; text-align: center;">in</div>LinkedIn
                 </a>
-                <!-- Instagram -->
                 <a href="https://www.instagram.com/j0ris.lp/" target="_blank" class="contact-item">
-                    <div style="background: #e1306c; padding: 10px; border-radius: 12px; color: white; width: 40px; text-align: center;">IG</div>
-                    @j0ris.lp
+                    <div style="background: #e1306c; padding: 10px; border-radius: 12px; color: white; width: 40px; text-align: center;">IG</div>@j0ris.lp
                 </a>
-                <!-- Email -->
                 <a href="mailto:lepeytrejoris@gmail.com" class="contact-item">
-                    <div style="background: var(--accent); padding: 10px; border-radius: 12px; color: white; width: 40px; text-align: center;">@</div>
-                    lepeytrejoris@gmail.com
+                    <div style="background: var(--accent); padding: 10px; border-radius: 12px; color: white; width: 40px; text-align: center;">@</div>lepeytrejoris@gmail.com
                 </a>
-                <!-- Tel -->
                 <a href="tel:+33659231408" class="contact-item">
-                    <div style="background: var(--lvl-maitrise); padding: 10px; border-radius: 12px; color: white; width: 40px; text-align: center;">📞</div>
-                    06 59 23 14 08
+                    <div style="background: var(--lvl-maitrise); padding: 10px; border-radius: 12px; color: white; width: 40px; text-align: center;">📞</div>06 59 23 14 08
                 </a>
             </div>
         </section>
     </div>
 
-    <!-- PAGE MÉTIER (Industrie - Centrale de Dampierre) -->
+    <!-- PAGES SECONDAIRES -->
     <div id="sub-page-apprentissage" class="page-container hidden">
         <section>
             <div class="back-btn" onclick="showHome()">← Retour au menu</div>
             <h1 class="section-title">Missions EDF</h1>
-            <p style="color: white; margin-bottom: 35px; font-weight: 600; text-shadow: 0 4px 15px rgba(0,0,0,0.6);">Centrale de Dampierre-en-Burly (45)</p>
-            
             <div style="display: grid; gap: 20px;">
-                <div class="detail-box" style="border-left: 6px solid #e67e22;">
-                    <h3>1. Préparation d'affaires</h3>
-                    <p style="margin-top: 5px; font-size: 0.95rem;">Analyse technique, diagnostic et planification des ressources (T-12 semaines).</p>
-                </div>
-                <div class="detail-box" style="border-left: 6px solid #27ae60;">
-                    <h3>2. Réalisation terrain</h3>
-                    <p style="margin-top: 5px; font-size: 0.95rem;">Pilotage direct des équipes et coordination des flux en zone nucléaire contrôlée.</p>
-                </div>
-                <div class="detail-box" style="border-left: 6px solid #2980b9;">
-                    <h3>3. Retour d'Expérience</h3>
-                    <p style="margin-top: 5px; font-size: 0.95rem;">Analyse post-chantier, capitalisation et rédaction des rapports techniques finaux.</p>
-                </div>
+                <div class="detail-box" style="border-left: 6px solid #e67e22;"><h3>1. Préparation d'affaires</h3><p>Analyse technique, diagnostic et planification.</p></div>
+                <div class="detail-box" style="border-left: 6px solid #27ae60;"><h3>2. Réalisation terrain</h3><p>Pilotage direct des équipes en zone nucléaire.</p></div>
             </div>
-
             <div class="gallery-container">
-                <div class="gallery-item">
-                    <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1_Z8ncZJb86NQzYSmOgEoq4aBSR77AAkY&sz=w1000" alt="Machine DEG"></div>
-                    <div class="gallery-text">Groupe Eau Glacée (DEG)</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1M5jxWx2d0HgEWXjzB84ArDTcXnhP2x41&sz=w1000" alt="Schéma DEG"></div>
-                    <div class="gallery-text">Schéma technique de principe</div>
-                </div>
+                <div class="gallery-item"><div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1_Z8ncZJb86NQzYSmOgEoq4aBSR77AAkY&sz=w1000"></div><div class="gallery-text">Groupe Eau Glacée (DEG)</div></div>
             </div>
         </section>
     </div>
 
-    <!-- PAGE ÉTUDES (Nature / Energies) -->
+    <!-- PAGE ÉTUDES CORRIGÉE -->
     <div id="sub-page-etudes" class="page-container hidden">
         <section>
-            <div class="back-btn" onclick="showHome()">← Retour au calme</div>
-            <h1 class="section-title">BUT MT2E</h1>
-            <p style="color: white; margin-bottom: 35px; font-weight: 600; text-shadow: 0 4px 15px rgba(0,0,0,0.6);">Transition Énergétique & Thermique</p>
-
-            <div class="card-grid">
-                <div class="detail-box">
-                    <h3>Thermodynamique</h3>
-                    <p style="margin-top: 5px; font-size: 0.95rem;">Étude approfondie des cycles frigorifiques et des transferts de chaleur.</p>
-                </div>
-                <div class="detail-box">
-                    <h3>Maîtrise de l'Énergie</h3>
-                    <p style="margin-top: 5px; font-size: 0.95rem;">Audits énergétiques et optimisation des systèmes pour un futur bas carbone.</p>
-                </div>
-            </div>
-
-            <div class="gallery-container">
-                <div class="gallery-item">
-                    <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1nY1HP27ZZ7-GKnDEE6v0sP3ttt8cCFPc&sz=w1000" alt="Chiffrage"></div>
-                    <div class="gallery-text">Phase de chiffrage de projet</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1S0jMS--a3f3CSdel6N7UgmXTED6pwEn3&sz=w1000" alt="Conception 3D"></div>
-                    <div class="gallery-text">Conception et modélisation 3D</div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- PAGE COMPÉTENCES DÉTAILLÉES -->
-    <div id="sub-page-competences" class="page-container hidden">
-        <section>
             <div class="back-btn" onclick="showHome()">← Retour</div>
-            <h1 id="comp-title" class="section-title">Détails</h1>
+            <h1 class="section-title">BUT MT2E</h1>
+            <!-- Correction du titre ici -->
+            <p style="color: white; margin-bottom: 35px; font-weight: 600; text-shadow: 0 4px 15px rgba(0,0,0,0.6); font-family: 'Outfit';">Métiers de la Transition et de l'Efficacité Énergétique</p>
             
-            <div class="legend">
-                <div class="legend-item"><div class="dot" style="background: var(--lvl-maitrise);"></div> Maîtrisée</div>
-                <div class="legend-item"><div class="dot" style="background: var(--lvl-dev);"></div> En développement</div>
-                <div class="legend-item"><div class="dot" style="background: var(--lvl-appr);"></div> En apprentissage</div>
-            </div>
-
-            <div id="comp-list-container">
-                <!-- Rempli par JavaScript -->
+            <div class="card-grid">
+                <div class="detail-box"><h3>Thermodynamique</h3><p>Étude des cycles frigorifiques et des systèmes complexes.</p></div>
+                <div class="detail-box"><h3>Maîtrise de l'Énergie</h3><p>Audits, optimisation carbone et gestion des ressources.</p></div>
             </div>
         </section>
     </div>
 
-    <footer style="padding: 40px; text-align: center; color: var(--text-light); font-weight: 500;">
-        © 2026 — Joris Lepeytre — Expertise Énergie & Froid
-    </footer>
+    <div id="sub-page-competences" class="page-container hidden">
+        <section><div class="back-btn" onclick="showHome()">← Retour</div><h1 id="comp-title" class="section-title">Détails</h1><div id="comp-list-container"></div></section>
+    </div>
+
+    <footer style="padding: 40px; text-align: center; color: var(--text-light); font-weight: 500;">© 2026 — Joris Lepeytre</footer>
 
     <script>
-        let lastHomeScrollPos = 0;
+        const siteUrl = "https://lepeytrejoris-collab.github.io/Joris-LEPEYTRE-PORTFOLIO/";
+        const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(siteUrl)}&color=1a4331&margin=1`;
 
-        const compData = {
-            hard: {
-                title: "Hard Skills",
-                items: [
-                    { n: "Thermodynamique & Échanges thermiques", s: "Maîtrisée", c: "var(--lvl-maitrise)", d: "Expertise sur les cycles frigorifiques et optimisation thermique des installations." },
-                    { n: "Rédaction de documents techniques", s: "Maîtrisée", c: "var(--lvl-maitrise)", d: "Capacité à rédiger des dossiers d'intervention et des rapports d'expertise clairs." },
-                    { n: "Logiciels métiers (Excel, Veol...)", s: "Maîtrisée", c: "var(--lvl-maitrise)", d: "Utilisation quotidienne des outils de gestion de données et de maintenance." },
-                    { n: "Maintenance préventive", s: "En développement", c: "var(--lvl-dev)", d: "Planification d'entretien pour les systèmes de ventilation et de froid industriel." },
-                    { n: "Estimation des coûts (Budget)", s: "En apprentissage", c: "var(--lvl-appr)", d: "Apprentissage des méthodes de chiffrage pour les futurs projets de maintenance." }
-                ]
-            },
-            soft: {
-                title: "Soft Skills",
-                items: [
-                    { n: "Sûreté nucléaire & Sécurité", s: "Maîtrisée", c: "var(--lvl-maitrise)", d: "Application stricte des procédures en milieu sensible et zone contrôlée." },
-                    { n: "Communication transversale", s: "Maîtrisée", c: "var(--lvl-maitrise)", d: "Lien fluide entre les différents services d'exploitation et technique." },
-                    { n: "Leadership & Coordination", s: "En développement", c: "var(--lvl-dev)", d: "Animation des techniciens et prestataires lors des phases de réalisation." },
-                    { n: "Gestion de projet", s: "En développement", c: "var(--lvl-dev)", d: "Suivi rigoureux de l'avancement des dossiers via des tableaux de bord." }
-                ]
-            },
-            savoir: {
-                title: "Savoir-être",
-                items: [
-                    { n: "Rigueur nucléaire", s: "Maîtrisée", c: "var(--lvl-maitrise)", d: "Exigence maximale dans la réalisation et le contrôle de chaque tâche critique." },
-                    { n: "Adaptabilité technique", s: "Maîtrisée", c: "var(--lvl-maitrise)", d: "Aisance face à de nouveaux équipements ou des schémas techniques complexes." },
-                    { n: "Retour d'expérience (REX)", s: "Maîtrisée", c: "var(--lvl-maitrise)", d: "Analyse systématique post-chantier pour capitaliser sur les réussites." },
-                    { n: "Esprit critique", s: "En développement", c: "var(--lvl-dev)", d: "Force de proposition pour l'amélioration continue des processus existants." }
-                ]
-            }
+        window.onload = () => {
+            document.getElementById('hero-qr-img').src = qrUrl;
+            document.getElementById('modal-qr-img').src = qrUrl;
+            initCanvas(); animate();
         };
 
-        // Fonction pour ouvrir/fermer le menu mobile
+        let lastHomeScrollPos = 0;
+
         function toggleMenu() {
             const menu = document.getElementById('nav-menu');
-            const burger = document.getElementById('burger-btn');
             menu.classList.toggle('active');
-            
-            // Animation des barres du burger (optionnel visuellement)
-            const lines = burger.children;
-            if(menu.classList.contains('active')) {
-                lines[0].style.transform = "rotate(45deg) translate(5px, 6px)";
-                lines[1].style.opacity = "0";
-                lines[2].style.transform = "rotate(-45deg) translate(5px, -6px)";
-            } else {
-                lines[0].style.transform = "none";
-                lines[1].style.opacity = "1";
-                lines[2].style.transform = "none";
-            }
         }
 
-        function showApprentissage() {
-            lastHomeScrollPos = window.scrollY;
-            document.body.classList.remove('mode-nature');
-            document.body.classList.add('mode-industrie');
-            hideAll();
-            document.getElementById('sub-page-apprentissage').classList.remove('hidden');
-            window.scrollTo(0, 0);
+        function toggleQRModal() {
+            document.getElementById('qr-modal').classList.toggle('active');
         }
 
-        function showEtudes() {
-            lastHomeScrollPos = window.scrollY;
-            document.body.classList.remove('mode-industrie');
-            document.body.classList.add('mode-nature');
-            hideAll();
-            document.getElementById('sub-page-etudes').classList.remove('hidden');
-            window.scrollTo(0, 0);
-        }
+        function showApprentissage() { lastHomeScrollPos = window.scrollY; document.body.classList.add('mode-industrie'); hideAll(); document.getElementById('sub-page-apprentissage').classList.remove('hidden'); window.scrollTo(0, 0); }
+        function showEtudes() { lastHomeScrollPos = window.scrollY; document.body.classList.add('mode-nature'); hideAll(); document.getElementById('sub-page-etudes').classList.remove('hidden'); window.scrollTo(0, 0); }
 
         function openCompPage(cat) {
             lastHomeScrollPos = window.scrollY;
-            document.body.classList.remove('mode-nature', 'mode-industrie');
-            const data = compData[cat];
+            const data = {
+                hard: { title: "Hard Skills", items: [{n:"Thermodynamique", d:"Maîtrise des cycles frigorifiques.", s:"Maîtrisée", c:"var(--lvl-maitrise)"}] },
+                soft: { title: "Soft Skills", items: [{n:"Coordination", d:"Animation d'équipes techniques.", s:"En dev.", c:"var(--lvl-dev)"}] },
+                savoir: { title: "Savoir-être", items: [{n:"Rigueur", d:"Exigence nucléaire.", s:"Maîtrisée", c:"var(--lvl-maitrise)"}] }
+            }[cat];
             document.getElementById('comp-title').innerText = data.title;
             const container = document.getElementById('comp-list-container');
             container.innerHTML = '';
             data.items.forEach(i => {
-                container.innerHTML += `
-                    <div class="detail-box reveal active">
-                        <h3>${i.n}</h3>
-                        <p style="margin-top:10px; font-size:0.95rem; color:var(--text-light);">${i.d}</p>
-                        <span class="status-pill" style="background:${i.c}">${i.s}</span>
-                    </div>`;
+                container.innerHTML += `<div class="detail-box"><h3>${i.n}</h3><p>${i.d}</p><span class="status-pill" style="background:${i.c}">${i.s}</span></div>`;
             });
-            hideAll();
-            document.getElementById('sub-page-competences').classList.remove('hidden');
-            window.scrollTo(0, 0);
-            updateBackground();
+            hideAll(); document.getElementById('sub-page-competences').classList.remove('hidden'); window.scrollTo(0, 0);
         }
 
         function showHome() {
             document.body.classList.remove('mode-nature', 'mode-industrie');
-            hideAll();
-            document.getElementById('main-content').classList.remove('hidden');
-            document.getElementById('nav-menu').classList.remove('active');
-            
-            // Remise à zéro du burger
-            const lines = document.getElementById('burger-btn').children;
-            lines[0].style.transform = "none";
-            lines[1].style.opacity = "1";
-            lines[2].style.transform = "none";
-
+            hideAll(); document.getElementById('main-content').classList.remove('hidden');
             window.scrollTo(0, lastHomeScrollPos);
-            updateBackground();
         }
 
-        function navigateToSection(id) {
-            showHome();
-            setTimeout(() => {
-                const el = document.getElementById(id);
-                if(el) el.scrollIntoView({ behavior: 'smooth' });
-                document.getElementById('nav-menu').classList.remove('active');
-            }, 50);
-        }
-
-        function hideAll() {
-            document.querySelectorAll('.page-container').forEach(p => p.classList.add('hidden'));
-        }
+        function navigateToSection(id) { showHome(); setTimeout(() => { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }, 50); }
+        function hideAll() { document.querySelectorAll('.page-container').forEach(p => p.classList.add('hidden')); }
 
         function updateBackground() {
             if(document.body.classList.contains('mode-nature') || document.body.classList.contains('mode-industrie')) return;
@@ -779,57 +443,38 @@
             let r, g, b;
             if (scrollPercent < 0.33) {
                 const p = scrollPercent / 0.33;
-                r = colors[0][0] + (colors[1][0] - colors[0][0]) * p;
-                g = colors[0][1] + (colors[1][1] - colors[0][1]) * p;
-                b = colors[0][2] + (colors[1][2] - colors[0][2]) * p;
+                r = colors[0][0] + (colors[1][0] - colors[0][0]) * p; g = colors[0][1] + (colors[1][1] - colors[0][1]) * p; b = colors[0][2] + (colors[1][2] - colors[0][2]) * p;
             } else if (scrollPercent < 0.66) {
                 const p = (scrollPercent - 0.33) / 0.33;
-                r = colors[1][0] + (colors[2][0] - colors[1][0]) * p;
-                g = colors[1][1] + (colors[2][1] - colors[1][1]) * p;
-                b = colors[1][2] + (colors[2][2] - colors[1][2]) * p;
+                r = colors[1][0] + (colors[2][0] - colors[1][0]) * p; g = colors[1][1] + (colors[2][1] - colors[1][1]) * p; b = colors[1][2] + (colors[2][2] - colors[1][2]) * p;
             } else {
                 const p = Math.min(1, (scrollPercent - 0.66) / 0.34);
-                r = colors[2][0] + (colors[3][0] - colors[2][0]) * p;
-                g = colors[2][1] + (colors[3][1] - colors[2][1]) * p;
-                b = colors[2][2] + (colors[3][2] - colors[2][2]) * p;
+                r = colors[2][0] + (colors[3][0] - colors[2][0]) * p; g = colors[2][1] + (colors[3][1] - colors[2][1]) * p; b = colors[2][2] + (colors[3][2] - colors[2][2]) * p;
             }
             document.body.style.backgroundColor = `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
         }
 
         window.addEventListener('scroll', updateBackground);
-        updateBackground();
 
-        // Animation des bulles ambiantes
         const canvas = document.getElementById('ambient-canvas');
         const ctx = canvas.getContext('2d');
         let bubbles = [];
         function initCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            bubbles = Array.from({length: 12}, () => ({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                r: Math.random() * 120 + 60,
-                vx: (Math.random() - 0.5) * 0.4,
-                vy: (Math.random() - 0.5) * 0.4
-            }));
+            canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+            bubbles = Array.from({length: 12}, () => ({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * 120 + 60, vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4 }));
         }
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             bubbles.forEach(b => {
                 b.x += b.vx; b.y += b.vy;
-                if (b.x < -b.r) b.x = canvas.width + b.r;
-                if (b.x > canvas.width + b.r) b.x = -b.r;
+                if (b.x < -b.r) b.x = canvas.width + b.r; if (b.x > canvas.width + b.r) b.x = -b.r;
                 const gradient = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
-                gradient.addColorStop(0, 'rgba(255, 255, 255, 0.12)');
-                gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-                ctx.fillStyle = gradient;
-                ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2); ctx.fill();
+                gradient.addColorStop(0, 'rgba(255, 255, 255, 0.12)'); gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                ctx.fillStyle = gradient; ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2); ctx.fill();
             });
             requestAnimationFrame(animate);
         }
         window.addEventListener('resize', initCanvas);
-        initCanvas(); animate();
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('active'); });
